@@ -72,10 +72,6 @@ namespace Application.Common
             }
             catch (Exception ex)
             {
-                // TODO: Adicionar logging aqui
-                // _logger.LogError(ex, "Erro durante execução do comando {CommandType} para request {RequestType}", 
-                //     GetType().Name, typeof(TRequest).Name);
-
                 _response.StatusCode = StatusCodes.Status500InternalServerError;
                 _response.InternalMessage = "Erro na execução do comando.";
 
@@ -99,10 +95,6 @@ namespace Application.Common
             }
             catch (Exception ex)
             {
-                // TODO: Adicionar logging aqui
-                // _logger.LogWarning(ex, "Erro no processamento pós-transação para comando {CommandType}, mas dados foram salvos", 
-                //     GetType().Name);
-
                 _response.StatusCode = StatusCodes.Status206PartialContent;
                 _response.InternalMessage = "Alguns conteúdos foram salvos, mas ocorreu um erro.";
 
