@@ -22,10 +22,12 @@ namespace Domain.Shared.Enums
 
         #region E
 
+        [Description("Email already in use")] EmailAlreadyInUse
+
         #endregion
 
         #region F
-        
+
         #endregion
 
         #region G
@@ -37,7 +39,7 @@ namespace Domain.Shared.Enums
         #endregion
 
         #region I
-        
+
         #endregion
 
         #region J
@@ -57,6 +59,7 @@ namespace Domain.Shared.Enums
         #endregion
 
         #region N
+
         #endregion
 
         #region O
@@ -100,7 +103,7 @@ namespace Domain.Shared.Enums
         #endregion
 
         #region Y
-        
+
         #endregion
 
         #region Z

@@ -24,7 +24,8 @@ namespace Infrastructure.Services
                 new("sub", user.Id.ToString()),
                 new("pid", user.PersonId.ToString()),
                 new("ac", user.Email),
-                new("name", user.Person.FullName),
+                new("fname", user.Person.FirstName),
+                new("lname", user.Person.LastName),
             };
             // roles
             //claims.AddRange(user.Roles.Select(r => new System.Security.Claims.Claim("role", r)));

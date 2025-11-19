@@ -1,31 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <RootNamespace>Domain.Core</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <RootNamespace>Domain.Core</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="MediatR" Version="13.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="10.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="10.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="10.0.1" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="MediatR" Version="13.1.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="10.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="10.0.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="10.0.1"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\3.Domain.Shared\Domain.Shared.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\3.Domain.Shared\Domain.Shared.csproj"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Enums\" />
-    <Folder Include="Events\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="Records\" />
-    <Folder Include="Requests\" />
-    <Folder Include="Requirements\" />
-    <Folder Include="Responses\" />
-  </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Enums\"/>
+        <Folder Include="Interfaces\"/>
+        <Folder Include="Records\"/>
+        <Folder Include="Requirements\"/>
+    </ItemGroup>
 
 </Project>

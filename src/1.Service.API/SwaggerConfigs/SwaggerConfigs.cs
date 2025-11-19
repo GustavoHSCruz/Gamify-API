@@ -57,9 +57,30 @@ namespace Service.API.SwaggerConfigs
                 opt.EnableAnnotations();
 
                 // Incluir comentários XML para documentação
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                if (File.Exists(xmlPath)) opt.IncludeXmlComments(xmlPath, true);
+                // var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                // var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFilename);
+                // opt.IncludeXmlComments(xmlPath);
+                
+                // 1. Carrega o XML da própria API (Controllers)
+                var xmlFileApi = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPathApi = Path.Combine(AppContext.BaseDirectory, xmlFileApi);
+                opt.IncludeXmlComments(xmlPathApi);
+
+                // 2. Carrega o XML do Domain.Core (Onde está o RegisterUserRequest)
+                // O truque é usar o typeof numa classe que existe lá dentro para pegar o Assembly correto
+                var assemblyDomain = System.Reflection.Assembly.GetAssembly(typeof(Domain.Core.Requests.Public.RegisterUserRequest));
+    
+                if (assemblyDomain != null)
+                {
+                    var xmlFileDomain = $"{assemblyDomain.GetName().Name}.xml";
+                    var xmlPathDomain = Path.Combine(AppContext.BaseDirectory, xmlFileDomain);
+        
+                    // Só tenta incluir se o arquivo realmente existir
+                    if (File.Exists(xmlPathDomain))
+                    {
+                        opt.IncludeXmlComments(xmlPathDomain);
+                    }
+                }
             });
         }
 

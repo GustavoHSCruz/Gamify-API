@@ -15,7 +15,7 @@ namespace Application.Common
         where TEntity : Entity, IAggregateRoot
         where TRequest : Request<TResponse>
         where TResponse : CommandResponse
-        where TEvent : Event
+        where TEvent : DomainEvent
     {
         protected readonly IMediator _mediator;
         private TEntity _entity;

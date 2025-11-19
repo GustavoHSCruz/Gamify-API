@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Localization;
 using Service.API;
 using Service.API.SwaggerConfigs;
 using System.Globalization;
+using Microsoft.AspNetCore.Mvc;
+using Service.API.Conventions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +12,10 @@ builder.Services.AddDependencyInjections(builder.Configuration);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.Conventions.Add(new RoutePrefixConvention(new RouteAttribute("api/v1")));
+});
 
 builder.Services.AddCors(opt =>
 {
@@ -62,7 +67,7 @@ app.UseCors(x => x
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapHealthChecks("/healthyz").AllowAnonymous();
+app.MapHealthChecks("/health").AllowAnonymous();
 
 app.MapControllers();
 

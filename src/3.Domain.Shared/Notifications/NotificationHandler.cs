@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Domain.Shared.Notifications
 {
-    public abstract class NotificationHandler<TNotification> : INotificationHandler<TNotification> where TNotification : Events.Event
+    public abstract class NotificationHandler<TNotification> : INotificationHandler<TNotification> where TNotification : Events.DomainEvent
     {
         protected IMediator _mediator;
         protected NotificationHandler(IMediator mediator)
