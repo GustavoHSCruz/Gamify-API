@@ -10,48 +10,41 @@ public class RegisterUserRequest : CommandRequest<RegisterUserResponse>
     /// <summary>
     /// User Email Address
     /// </summary>
-    [Required(ErrorMessage =  "Email is required")]
+    [Required(ErrorMessage = "Email is required")]
     [DataType(DataType.EmailAddress)]
     public string Email { get; set; }
-    
+
     /// <summary>
     /// User Password
     /// </summary>
+    [Required(ErrorMessage = "Password is required")]
     [DataType(DataType.Password)]
     public string Password { get; set; }
-    
+
     /// <summary>
-    /// Repeat Password - Only allow request if password is equal
+    /// Repeat Password - Only allow request if both passwords are equal
     /// </summary>
+    [Required(ErrorMessage = "Confirm password is required")]
     [DataType(DataType.Password)]
     public string ConfirmPassword { get; set; }
-    
+
     /// <summary>
     /// User First Name
     /// </summary>
     [Required(ErrorMessage = "First name is required ")]
     [DataType(DataType.Text)]
     public string FirstName { get; set; }
-    
+
     /// <summary>
     /// User Last Name
     /// </summary>
     [Required(ErrorMessage = "Last name is required ")]
     [DataType(DataType.Text)]
     public string LastName { get; set; }
-    
+
     /// <summary>
-    /// Realiza uma transferência bancária entre contas.
+    /// Option to receive newsletter - Default is true
     /// </summary>
-    /// <remarks>
-    /// <para>
-    /// Esta operação é irreversível. O saldo é debitado imediatamente da conta de origem.
-    /// </para>
-    /// <para>
-    /// <b>Atenção:</b> Transações acima de R$ 10.000 precisam de aprovação manual do gerente.
-    /// O tempo de processamento pode levar até <b>24 horas</b>.
-    /// </para>
-    /// </remarks>
     [DefaultValue(true)]
     public bool RecieveNewsletter { get; set; }
 }

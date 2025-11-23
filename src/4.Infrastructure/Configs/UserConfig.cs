@@ -32,5 +32,9 @@ public class UserConfig : EntityConfig<User>
             .Property(x => x.Salt)
             .HasColumnName("DS_SALT")
             .IsRequired();
+        
+        builder
+            .Property(x => x.RefreshToken)
+            .HasColumnName("DS_REFRESH_TOKEN");
     }
 }

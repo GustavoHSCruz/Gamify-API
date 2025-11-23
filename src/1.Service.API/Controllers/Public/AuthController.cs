@@ -21,8 +21,17 @@ public class AuthController : SystemController
     [AllowAnonymous]
     [HttpPost("register")]
     [ProducesResponseType(typeof(RegisterUserResponse), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(RegisterUserResponse), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CommandResponse), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Register([FromBody] RegisterUserRequest request, CancellationToken cancellationToken)
+    {
+        return GetActionResult(await _mediator.Send(request, cancellationToken));
+    }
+
+    [AllowAnonymous]
+    [HttpPost("login")]
+    [ProducesResponseType(typeof(LoginUserResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(CommandResponse), StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Login([FromBody] LoginUserRequest request, CancellationToken cancellationToken) 
     {
         return GetActionResult(await _mediator.Send(request, cancellationToken));
     }

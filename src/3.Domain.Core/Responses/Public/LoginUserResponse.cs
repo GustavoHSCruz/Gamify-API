@@ -3,7 +3,7 @@ using Domain.Shared.Responses;
 
 namespace Domain.Core.Responses.Public;
 
-public class RegisterUserResponse : CommandResponse
+public class LoginUserResponse : CommandResponse
 {
     /// <summary>
     /// Jwt access token - Expired in 1 hour

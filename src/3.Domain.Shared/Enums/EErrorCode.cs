@@ -22,7 +22,11 @@ namespace Domain.Shared.Enums
 
         #region E
 
-        [Description("Email already in use")] EmailAlreadyInUse
+        [Description("Email already in use")]
+        EmailAlreadyInUse,
+        
+        [Description("Email or password wrong")]
+        EmailOrPasswordWrong,
 
         #endregion
 
@@ -87,7 +91,8 @@ namespace Domain.Shared.Enums
         #endregion
 
         #region U
-
+        [Description("User not found")]
+        UserNotFound,
         #endregion
 
         #region V
