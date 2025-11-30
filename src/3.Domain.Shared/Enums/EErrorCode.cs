@@ -14,6 +14,9 @@ namespace Domain.Shared.Enums
 
         #region C
 
+        [Description("Cannot update refresh token")]
+        CannotUpdateRefreshToken,
+
         #endregion
 
         #region D
@@ -22,9 +25,8 @@ namespace Domain.Shared.Enums
 
         #region E
 
-        [Description("Email already in use")]
-        EmailAlreadyInUse,
-        
+        [Description("Email already in use")] EmailAlreadyInUse,
+
         [Description("Email or password wrong")]
         EmailOrPasswordWrong,
 
@@ -63,7 +65,8 @@ namespace Domain.Shared.Enums
         #endregion
 
         #region N
-
+        [Description("No quest found")]
+        NoQuestFound,
         #endregion
 
         #region O
@@ -75,6 +78,9 @@ namespace Domain.Shared.Enums
         #endregion
 
         #region Q
+
+        [Description("Quest activitie already scheduled")]
+        QuestActivitieAlreadyScheduled,
 
         #endregion
 
@@ -91,8 +97,9 @@ namespace Domain.Shared.Enums
         #endregion
 
         #region U
-        [Description("User not found")]
-        UserNotFound,
+
+        [Description("User not found")] UserNotFound,
+
         #endregion
 
         #region V
