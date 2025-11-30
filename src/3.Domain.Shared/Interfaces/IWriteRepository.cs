@@ -7,11 +7,9 @@ namespace Domain.Shared.Interfaces
     {
         IQueryable<T> AsQueryable<T>() where T : Entity, IAggregateRoot;
 
-        Task<bool> ExistAsync<T>(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes)
-            where T : Entity, IAggregateRoot;
+        Task<bool> ExistAsync<T>(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes) where T : Entity, IAggregateRoot;
 
-        Task<T> SingleAsync<T>(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes)
-            where T : Entity, IAggregateRoot;
+        Task<T> SingleAsync<T>(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes) where T : Entity, IAggregateRoot;
 
         Task AddAsync<T>(T entity) where T : Entity, IAggregateRoot;
 

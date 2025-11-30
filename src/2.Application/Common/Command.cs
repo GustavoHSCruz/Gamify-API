@@ -77,8 +77,7 @@ namespace Application.Common
 
                 return _response;
             }
-
-            // Segunda fase: Processamento pós-transação (não crítico)
+            
             try
             {
                 await AfterChanges(_entity);

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Localization;
 using Service.API;
 using Service.API.SwaggerConfigs;
 using System.Globalization;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Service.API.Conventions;
 
@@ -15,6 +16,9 @@ builder.Services.AddDependencyInjections(builder.Configuration);
 builder.Services.AddControllers(options =>
 {
     options.Conventions.Add(new RoutePrefixConvention(new RouteAttribute("api/v1")));
+}).AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });
 
 builder.Services.AddCors(opt =>

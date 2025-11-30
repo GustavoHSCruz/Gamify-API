@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Notifications\" />
-    <Folder Include="Queries\" />
     <Folder Include="Validators\" />
   </ItemGroup>
 
