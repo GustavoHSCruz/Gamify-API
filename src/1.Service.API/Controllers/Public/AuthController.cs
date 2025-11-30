@@ -35,4 +35,13 @@ public class AuthController : SystemController
     {
         return GetActionResult(await _mediator.Send(request, cancellationToken));
     }
+    
+    [AllowAnonymous]
+    [HttpPost("refresh")]
+    [ProducesResponseType(typeof(RefreshTokenResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(CommandResponse), StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest request, CancellationToken cancellationToken) 
+    {
+        return GetActionResult(await _mediator.Send(request, cancellationToken));
+    }
 }
