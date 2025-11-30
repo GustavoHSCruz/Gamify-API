@@ -27,7 +27,7 @@ public class RegisterUserCommand : Command<User, RegisterUserRequest, RegisterUs
 
     protected override async Task BeforeChanges(RegisterUserRequest request)
     {
-        var user = await _repository.SingleAsync<User>(x => x.Email == request.Email);
+        var user = await _repository.SingleAsync<User>(x => x.Email == request.Email && x.IsActive && !x.IsDeleted);
 
         if (user != null)
         {
@@ -37,17 +37,19 @@ public class RegisterUserCommand : Command<User, RegisterUserRequest, RegisterUs
         }
     }
 
-    protected override Task<User> Changes(RegisterUserRequest request)
+    protected override async Task<User> Changes(RegisterUserRequest request)
     {
         var person = new Person(request.FirstName, request.LastName);
 
         var passwordInfo = PasswordService.CryptPassword(request.Password);
         var user = new User(person, request.Email, passwordInfo.HashedPassword, passwordInfo.Salt);
+        
+        await _repository.AddAsync(user);
 
         _token = _jwtService.GenerateToken(user);
         _refreshToken = _jwtService.GenerateRefreshToken();
 
-        return Task.FromResult(user);
+        return await Task.FromResult(user);
     }
 
     protected override async Task AfterChanges(User entity)
