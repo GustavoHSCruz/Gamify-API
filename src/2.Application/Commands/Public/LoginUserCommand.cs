@@ -24,7 +24,7 @@ public class LoginUserCommand : Command<User, LoginUserRequest, LoginUserRespons
 
     protected override async Task BeforeChanges(LoginUserRequest request)
     {
-        _user = await _repository.SingleAsync<User>(x => x.Email == request.Email && x.IsActive && !x.IsDeleted );
+        _user = await _repository.SingleAsync<User>(x => x.Email == request.Email && x.IsActive && !x.IsDeleted, x=> x.Person);
 
         if (_user == null)
         {
