@@ -12,7 +12,7 @@ public class QuestActivityConfig : EntityConfig<QuestActivity>
     {
         base.Configure(builder);
         
-        builder.ToTable("tb_quest_completion");
+        builder.ToTable("tb_quest_activity");
         
         builder
             .Property(x => x.QuestId)
