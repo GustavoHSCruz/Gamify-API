@@ -52,21 +52,9 @@ namespace Application.Common
 
             var pidStr = httpContext!.User.FindFirst("pid")?.Value ?? httpContext.User.FindFirst("userId")?.Value;
 
-            var tidStr = httpContext!.User.FindFirst("tid")?.Value;
-
-            var cidStr = httpContext!.User.FindFirst("cid")?.Value;
-
-            var uidStr = httpContext!.User.FindFirst("uid")?.Value;
-
             if (Guid.TryParse(subStr, out var userId)) request.SetUserId(userId);
 
             if (Guid.TryParse(pidStr, out var personId)) request.SetPersonId(personId);
-
-            if (Guid.TryParse(tidStr, out var tenantId)) request.SetTenantId(tenantId);
-
-            if (Guid.TryParse(cidStr, out var companyId)) request.SetCompanyId(companyId);
-
-            if (Guid.TryParse(uidStr, out var unitId)) request.SetUnitId(unitId);
 
             return await next();
         }

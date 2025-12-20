@@ -17,6 +17,9 @@ namespace Domain.Shared.Enums
         [Description("Cannot update refresh token")]
         CannotUpdateRefreshToken,
 
+        [Description("Password and confirm password must be equal")]
+        PasswordAndConfirmPasswordMustBeEqual,
+
         #endregion
 
         #region D
@@ -25,11 +28,10 @@ namespace Domain.Shared.Enums
 
         #region E
 
-        [Description("Email already in use")]
-        EmailAlreadyInUse,
+        [Description("Email already in use")] EmailAlreadyInUse,
 
-        [Description("Email or password wrong")]
-        EmailOrPasswordWrong,
+        [Description("Email pattern not match")]
+        EmailPatternNotMatch,
 
         #endregion
 
@@ -62,19 +64,29 @@ namespace Domain.Shared.Enums
         #endregion
 
         #region M
-
+        [Description("Must be business days")]
+        MustBeBusinessDays,
+        
+        [Description("Must be weekend" )]
+        MustBeWeekend,
         #endregion
 
         #region N
-        [Description("Quest not found")]
-        QuestNotFound,
+
+        [Description("Quest not found")] QuestNotFound,
+
         #endregion
 
         #region O
-
+        
+        [Description("Only one week day can be selected")]
+        OnlyOneWeekDay,
         #endregion
 
         #region P
+
+        [Description("Password pattern not match")]
+        PasswordPatternNotMatch,
 
         #endregion
 
@@ -108,6 +120,9 @@ namespace Domain.Shared.Enums
         #endregion
 
         #region W
+
+        [Description("Wrong email or password")]
+        WrongEmailOrPassword,
 
         #endregion
 

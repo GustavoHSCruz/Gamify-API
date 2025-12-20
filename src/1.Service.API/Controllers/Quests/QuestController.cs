@@ -59,6 +59,8 @@ public class QuestController : SystemController
     }
 
     [HttpPatch("{id}")]
+    [ProducesResponseType(typeof(PatchQuestResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(CommandResponse), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Patch([FromBody] PatchQuestRequest request, CancellationToken cancellationToken)
     {
         return GetActionResult(await _mediator.Send(request, cancellationToken));

@@ -7,6 +7,7 @@ public class MappedEntities : AutoMapper.Profile
 {
     public MappedEntities()
     {
-        CreateMap<UpdateQuestRequest, Quest>();
+        CreateMap<UpdateQuestRequest, Quest>()
+            .ForMember(dest => dest.PersonId, opt => opt.Ignore());
     }
 }

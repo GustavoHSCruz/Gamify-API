@@ -28,17 +28,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\src\1.Service.API\Service.API.csproj" />
     <ProjectReference Include="..\src\2.Application\Application.csproj" />
     <ProjectReference Include="..\src\3.Domain.Shared\Domain.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Using Include="Xunit" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Fakes\" />
-    <Folder Include="Flow\" />
   </ItemGroup>
 
 </Project>

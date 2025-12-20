@@ -1,4 +1,3 @@
-using Domain.Core.Entities.Quests;
 using Domain.Shared.Entities;
 using Domain.Shared.Interfaces;
 
@@ -21,7 +20,7 @@ public class User : Entity, IAggregateRoot
         Password = password;
         Salt = salt;
     }
-
+    
     public Person Person { get; set; }
     public Guid PersonId { get; set; }
     public string Email { get; set; }

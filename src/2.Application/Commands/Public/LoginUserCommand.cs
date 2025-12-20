@@ -28,14 +28,14 @@ public class LoginUserCommand : Command<User, LoginUserRequest, LoginUserRespons
 
         if (_user == null)
         {
-            _response.AddError(EErrorCode.EmailOrPasswordWrong);
+            _response.AddError(EErrorCode.WrongEmailOrPassword);
             
             return;
         }
 
         if (!PasswordService.VerifyPassword(request.Password, _user.Password))
         {
-            _response.AddError(EErrorCode.EmailOrPasswordWrong);
+            _response.AddError(EErrorCode.WrongEmailOrPassword);
             
             return;
         }

@@ -9,9 +9,8 @@
 
   <ItemGroup>
 	<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
-	<PackageReference Include="Extensions.FluentValidation.Br" Version="1.0.2" />
 	<PackageReference Include="FluentValidation" Version="12.1.0" />
-	<PackageReference Include="MediatR" Version="13.1.0" />
+	<PackageReference Include="MediatR" Version="14.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="Notifications\" />
-    <Folder Include="Validators\" />
   </ItemGroup>
 
 </Project>

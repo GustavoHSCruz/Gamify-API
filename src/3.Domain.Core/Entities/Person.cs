@@ -1,3 +1,5 @@
+
+using System.Text.Json.Serialization;
 using Domain.Core.Entities.Quests;
 using Domain.Shared.Entities;
 
@@ -13,6 +15,7 @@ public class Person : Entity
     
     private List<Quest> _quests = new();
     
+    [JsonIgnore]
     public User User { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }

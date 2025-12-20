@@ -35,14 +35,12 @@ public class UpdateQuestCommand : Command<Quest, UpdateQuestRequest, UpdateQuest
 
     protected override Task<Quest> Changes(UpdateQuestRequest request)
     {
-        _mapper.Map(request, _quest);
-        
         TimeSpan difference = new(0, 0, 0, 0, 0, 0);
-        
+
         if (_quest.Recurrence != request.Recurrence || request.QuestEnd != _quest.QuestEnd || request.WeekDays != _quest.WeekDays)
         {
             _quest.QuestActivities.ToList().ForEach(x => x.SetDeleted());
-            
+
             if (request.QuestEnd != null)
             {
                 difference = (DateTime)request.QuestEnd - request.QuestStart;
@@ -59,7 +57,9 @@ public class UpdateQuestCommand : Command<Quest, UpdateQuestRequest, UpdateQuest
                 _quest.AddQuestActivity(new QuestActivity(day, day.Add(difference), request.Experience, request.Gold));
             }
         }
-        
+
+        _mapper.Map(request, _quest);
+
         return Task.FromResult(_quest);
     }
 }

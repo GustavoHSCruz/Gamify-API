@@ -18,7 +18,6 @@ public class RegisterUserCommand : Command<User, RegisterUserRequest, RegisterUs
 {
     private readonly IJwtService _jwtService;
     private string _token;
-    private string _refreshToken;
 
     public RegisterUserCommand(IMediator mediator, IWriteRepository repository, IUnitOfWork uow, IMapper mapper, IJwtService jwtService) : base(mediator, repository, uow, mapper)
     {
@@ -47,7 +46,9 @@ public class RegisterUserCommand : Command<User, RegisterUserRequest, RegisterUs
         await _repository.AddAsync(user);
 
         _token = _jwtService.GenerateToken(user);
-        _refreshToken = _jwtService.GenerateRefreshToken();
+        var refreshToken = _jwtService.GenerateRefreshToken();
+        
+        user.RefreshToken = refreshToken;
 
         return await Task.FromResult(user);
     }
@@ -55,6 +56,6 @@ public class RegisterUserCommand : Command<User, RegisterUserRequest, RegisterUs
     protected override async Task AfterChanges(User entity)
     {
         _response.Token = _token;
-        _response.RefreshToken = _refreshToken;
+        _response.RefreshToken = entity.RefreshToken;
     }
 }

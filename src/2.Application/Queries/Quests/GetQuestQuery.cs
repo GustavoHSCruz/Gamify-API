@@ -19,6 +19,7 @@ public class GetQuestQuery : Query<GetQuestRequest, GetQuestResponse>
 
         predicate = predicate.And(x => !x.IsDeleted);
 
+        //TODO: Unify Title and Description
         if (!string.IsNullOrEmpty(request.Title)) predicate = predicate.And(x => x.Title.Contains(request.Title));
         if (!string.IsNullOrEmpty(request.Description)) predicate = predicate.And(x => x.Description.Contains(request.Description));
         if (!request.AttributeType.IsNullOrDontExist()) predicate = predicate.And(x => x.AttributeType == request.AttributeType);

@@ -17,8 +17,8 @@ namespace Service.API
     {
         public static IServiceCollection AddDependencyInjections(this IServiceCollection services, IConfiguration configuration)
         {
-            var appAssembly = Assembly.Load("Application");          // Application
-            var domainCoreAssembly = Assembly.Load("Domain.Core"); // onde está o request
+            var appAssembly = Assembly.Load("Application");
+            var domainCoreAssembly = Assembly.Load("Domain.Core");
             var thisAssembly = Assembly.GetExecutingAssembly();
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");

@@ -46,5 +46,5 @@ public class RegisterUserRequest : CommandRequest<RegisterUserResponse>
     /// Option to receive newsletter - Default is true
     /// </summary>
     [DefaultValue(true)]
-    public bool RecieveNewsletter { get; set; }
+    public bool ReceiveNewsletter { get; set; }
 }

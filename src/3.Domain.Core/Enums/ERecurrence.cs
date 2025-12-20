@@ -6,7 +6,7 @@ public enum ERecurrence
     Daily = 1,
     Weekly = 2,
     Monthly = 3,
-    WeekDays = 4,
+    BusinessDays = 4,
     Weekends = 5,
     Custom = 6
 }

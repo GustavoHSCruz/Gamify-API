@@ -23,7 +23,7 @@ public class RefreshTokenCommand : Command<User, RefreshTokenRequest, RefreshTok
 
     protected override async Task BeforeChanges(RefreshTokenRequest request)
     {
-        _user = await _repository.SingleAsync<User>(x => x.Email == request.Email && x.RefreshToken == request.RefreshToken && x.IsActive && !x.IsDeleted);
+        _user = await _repository.SingleAsync<User>(x => x.Id == request.GetUserId() && x.Email == request.Email && x.RefreshToken == request.RefreshToken && x.IsActive && !x.IsDeleted);
 
         if (_user == null)
         {
